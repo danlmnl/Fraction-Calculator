@@ -50,14 +50,12 @@ def check_numerators():
         return None
 
     return a, c
+    
 def check_denominator(entry, number_of_entry):
     try:
         denominator = abs(int(entry.get().strip()))
     except ValueError:
-        messagebox.showerror(
-            "Ошибка",
-            f"Некорректные символы в {number_of_entry} поле"
-        )
+        messagebox.showerror("Ошибка", f"Некорректные символы в {number_of_entry} поле")
         entry.delete(0, END)
         return None
 
@@ -65,7 +63,7 @@ def check_denominator(entry, number_of_entry):
         messagebox.showerror("Ошибка", "В знаменателе не допускается 0")
         entry.delete(0, END)
         return None
-
+        
     return denominator
 
 def check_denominators():
@@ -105,7 +103,6 @@ def divide(a, b, c, d):
     zn = b * c
     return ch, zn
 
-
 def calculate():
     numerators = check_numerators()
     if numerators is None:
@@ -122,29 +119,16 @@ def calculate():
     ch, zn = operations[operation.get()](a, b, c, d)
     finally_res(ch, zn)
 
-
 def finally_res(ch, zn):
     gcd1 = gcd(ch, zn)
     ch //= gcd1
     zn //= gcd1
-
     if zn<0:
         ch*=-1
         zn*=-1
-
     show_result(ch, zn)
 
 k5 = Button(root, text="calculate", command=calculate)
 k5.grid(row=10, column=3)
 
 root.mainloop()
-
-
-
-print({"е65ec0f0",
-"a4bea5c0",
-"72c14f8d",
-"291a3418",
-"ae6694e1",
-"6023dc5c",
-"eaabd2fd"}.sort)
